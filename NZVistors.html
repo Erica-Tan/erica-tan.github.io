@@ -10420,8 +10420,8 @@ div#notebook_panel {
   height: 100%;
 }
 div#notebook {
-  font-size: 14px;
-  line-height: 20px;
+  /*font-size: 14px;
+  line-height: 20px;*/
   overflow-y: hidden;
   overflow-x: auto;
   width: 100%;
@@ -11810,20 +11810,19 @@ div#notebook {
     <!-- /.container -->
 </nav>
 
-<!-- Page Header -->
-<!-- Set your background image for this header on the line below. -->
-<header class="intro-header" style="background-image: url('img/home-bg.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('img/home-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
 
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</header>
-
+    </header>
 
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
@@ -11951,11 +11950,11 @@ int64
 <span class="n">split_point</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">series</span><span class="p">)</span> <span class="o">-</span> <span class="mi">5</span>
 <span class="n">dataset</span><span class="p">,</span> <span class="n">test</span> <span class="o">=</span> <span class="n">series</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">split_point</span><span class="p">],</span> <span class="n">series</span><span class="p">[</span><span class="n">split_point</span><span class="p">:]</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Dataset </span><span class="si">%d</span><span class="s1">, Test </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">test</span><span class="p">)))</span>
-<span class="n">dataset</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;dataset.csv&#39;</span><span class="p">)</span>
-<span class="n">test</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;test.csv&#39;</span><span class="p">)</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;data/dataset.csv&#39;</span><span class="p">)</span>
+<span class="n">test</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;data/test.csv&#39;</span><span class="p">)</span>
 
 <span class="c1"># load data</span>
-<span class="n">series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span><span class="s1">&#39;dataset.csv&#39;</span><span class="p">)</span>
+<span class="n">series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span><span class="s1">&#39;data/dataset.csv&#39;</span><span class="p">)</span>
 <span class="c1"># prepare data</span>
 <span class="c1"># split into train and validation sets</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">series</span><span class="o">.</span><span class="n">values</span>
@@ -13199,7 +13198,7 @@ D+nlEmtUwNNiAAAAAElFTkSuQmCC
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">groups</span> <span class="o">=</span> <span class="n">series</span><span class="p">[</span><span class="s1">&#39;1999&#39;</span><span class="p">:</span><span class="s1">&#39;2011&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">TimeGrouper</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">))</span>
 <span class="n">years</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">:</span>
-	<span class="n">years</span><span class="p">[</span><span class="n">name</span><span class="o">.</span><span class="n">year</span><span class="p">]</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">values</span>
+  <span class="n">years</span><span class="p">[</span><span class="n">name</span><span class="o">.</span><span class="n">year</span><span class="p">]</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">values</span>
 <span class="n">years</span><span class="o">.</span><span class="n">boxplot</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -17117,41 +17116,41 @@ w6PHE2YAAAAASUVORK5CYII=
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Grid Search ARIMA Hyperparameters</span>
 <span class="c1"># evaluate an ARIMA model for a given order (p,d,q)</span>
 <span class="k">def</span> <span class="nf">evaluate_arima_model</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="n">arima_order</span><span class="p">):</span>
-	<span class="c1"># walk-forward validation</span>
-	<span class="n">history</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">train</span><span class="p">]</span>
-	<span class="n">predictions</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
-	<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test</span><span class="p">)):</span>
-		<span class="n">model</span> <span class="o">=</span> <span class="n">ARIMA</span><span class="p">(</span><span class="n">history</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">arima_order</span><span class="p">)</span>
-		<span class="n">model_fit</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-		<span class="n">yhat</span> <span class="o">=</span> <span class="n">model_fit</span><span class="o">.</span><span class="n">forecast</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
-		<span class="n">predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">yhat</span><span class="p">)</span>
+  <span class="c1"># walk-forward validation</span>
+  <span class="n">history</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">train</span><span class="p">]</span>
+  <span class="n">predictions</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+  <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test</span><span class="p">)):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">ARIMA</span><span class="p">(</span><span class="n">history</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">arima_order</span><span class="p">)</span>
+    <span class="n">model_fit</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">yhat</span> <span class="o">=</span> <span class="n">model_fit</span><span class="o">.</span><span class="n">forecast</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">yhat</span><span class="p">)</span>
 
-		<span class="n">obs</span> <span class="o">=</span> <span class="n">test</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
-		<span class="n">history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span>
-		<span class="c1">#print(&#39;predicted=%f, expected=%f&#39; % (yhat, obs))</span>
-		
-	<span class="c1"># calculate out of sample error</span>
-	<span class="n">mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">predictions</span><span class="p">)</span>
-	<span class="n">rmse</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">mse</span><span class="p">)</span>
-	<span class="k">return</span> <span class="n">rmse</span>
+    <span class="n">obs</span> <span class="o">=</span> <span class="n">test</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
+    <span class="n">history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span>
+    <span class="c1">#print(&#39;predicted=%f, expected=%f&#39; % (yhat, obs))</span>
+    
+  <span class="c1"># calculate out of sample error</span>
+  <span class="n">mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">predictions</span><span class="p">)</span>
+  <span class="n">rmse</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">mse</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">rmse</span>
 
 <span class="c1"># evaluate combinations of p, d and q values for an ARIMA model</span>
 <span class="k">def</span> <span class="nf">evaluate_models</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="n">p_values</span><span class="p">,</span> <span class="n">d_values</span><span class="p">,</span> <span class="n">q_values</span><span class="p">):</span>
-	<span class="n">best_score</span><span class="p">,</span> <span class="n">best_cfg</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">),</span> <span class="kc">None</span>
+  <span class="n">best_score</span><span class="p">,</span> <span class="n">best_cfg</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">),</span> <span class="kc">None</span>
 
-	<span class="c1"># Iterate ARIMA Parameters</span>
-	<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">p_values</span><span class="p">:</span>
-		<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">d_values</span><span class="p">:</span>
-			<span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">q_values</span><span class="p">:</span>
-				<span class="n">order</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">q</span><span class="p">)</span>
-				<span class="k">try</span><span class="p">:</span>
-					<span class="n">rmse</span> <span class="o">=</span> <span class="n">evaluate_arima_model</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="n">order</span><span class="p">)</span>
-					<span class="k">if</span> <span class="n">rmse</span> <span class="o">&lt;</span> <span class="n">best_score</span><span class="p">:</span>
-						<span class="n">best_score</span><span class="p">,</span> <span class="n">best_cfg</span> <span class="o">=</span> <span class="n">rmse</span><span class="p">,</span> <span class="n">order</span>
-					<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ARIMA</span><span class="si">%s</span><span class="s1"> RMSE=</span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">order</span><span class="p">,</span><span class="n">rmse</span><span class="p">))</span>
-				<span class="k">except</span><span class="p">:</span>
-					<span class="k">continue</span>
-	<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Best ARIMA</span><span class="si">%s</span><span class="s1"> RMSE=</span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">best_cfg</span><span class="p">,</span> <span class="n">best_score</span><span class="p">))</span>
+  <span class="c1"># Iterate ARIMA Parameters</span>
+  <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">p_values</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">d_values</span><span class="p">:</span>
+      <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">q_values</span><span class="p">:</span>
+        <span class="n">order</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">q</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+          <span class="n">rmse</span> <span class="o">=</span> <span class="n">evaluate_arima_model</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="n">order</span><span class="p">)</span>
+          <span class="k">if</span> <span class="n">rmse</span> <span class="o">&lt;</span> <span class="n">best_score</span><span class="p">:</span>
+            <span class="n">best_score</span><span class="p">,</span> <span class="n">best_cfg</span> <span class="o">=</span> <span class="n">rmse</span><span class="p">,</span> <span class="n">order</span>
+          <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ARIMA</span><span class="si">%s</span><span class="s1"> RMSE=</span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">order</span><span class="p">,</span><span class="n">rmse</span><span class="p">))</span>
+        <span class="k">except</span><span class="p">:</span>
+          <span class="k">continue</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Best ARIMA</span><span class="si">%s</span><span class="s1"> RMSE=</span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">best_cfg</span><span class="p">,</span> <span class="n">best_score</span><span class="p">))</span>
 
 <span class="n">p_values</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 <span class="n">d_values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -17224,30 +17223,30 @@ Best ARIMA(1, 1, 2) RMSE=761.669
 <span class="c1"># an ARIMA model for a given order (p,d,q)</span>
 <span class="k">def</span> <span class="nf">arima_model</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span>  <span class="n">arima_order</span><span class="p">):</span>
     <span class="c1"># walk forward over time steps in test</span>
-	<span class="n">history</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">train</span><span class="p">]</span>
-	<span class="c1"># make predictions</span>
-	<span class="n">predictions</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
-	<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test</span><span class="p">)):</span>
-		<span class="n">model</span> <span class="o">=</span> <span class="n">ARIMA</span><span class="p">(</span><span class="n">history</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">arima_order</span><span class="p">)</span>
-		<span class="n">model_fit</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-		<span class="n">output</span> <span class="o">=</span> <span class="n">model_fit</span><span class="o">.</span><span class="n">forecast</span><span class="p">()</span>
-		<span class="n">yhat</span> <span class="o">=</span> <span class="n">output</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-		<span class="n">predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">yhat</span><span class="p">)</span>
-		<span class="n">obs</span> <span class="o">=</span> <span class="n">test</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
-		<span class="n">history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span>
-		<span class="c1">#print(&#39;predicted=%f, expected=%f&#39; % (yhat, obs))</span>
-		
-	<span class="c1"># calculate out of sample error</span>
-	<span class="n">mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">predictions</span><span class="p">)</span>
-	<span class="n">rmse</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">mse</span><span class="p">)</span>
+  <span class="n">history</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">train</span><span class="p">]</span>
+  <span class="c1"># make predictions</span>
+  <span class="n">predictions</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+  <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test</span><span class="p">)):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">ARIMA</span><span class="p">(</span><span class="n">history</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">arima_order</span><span class="p">)</span>
+    <span class="n">model_fit</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">model_fit</span><span class="o">.</span><span class="n">forecast</span><span class="p">()</span>
+    <span class="n">yhat</span> <span class="o">=</span> <span class="n">output</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">yhat</span><span class="p">)</span>
+    <span class="n">obs</span> <span class="o">=</span> <span class="n">test</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
+    <span class="n">history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span>
+    <span class="c1">#print(&#39;predicted=%f, expected=%f&#39; % (yhat, obs))</span>
     
-	<span class="c1"># plot</span>
-	<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
-	<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
-	<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;RSME: </span><span class="si">%.4f</span><span class="s1">&#39;</span><span class="o">%</span> <span class="n">rmse</span><span class="p">)</span>
-	<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+  <span class="c1"># calculate out of sample error</span>
+  <span class="n">mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">predictions</span><span class="p">)</span>
+  <span class="n">rmse</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">mse</span><span class="p">)</span>
+    
+  <span class="c1"># plot</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;RSME: </span><span class="si">%.4f</span><span class="s1">&#39;</span><span class="o">%</span> <span class="n">rmse</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-	<span class="k">return</span> <span class="n">predictions</span>
+  <span class="k">return</span> <span class="n">predictions</span>
 
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
 <span class="n">predictions</span> <span class="o">=</span> <span class="n">arima_model</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">validation</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
@@ -18722,46 +18721,46 @@ AAAAAElFTkSuQmCC
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Transform ARIMA model</span>
 <span class="c1"># invert box-cox transform</span>
 <span class="k">def</span> <span class="nf">boxcox_inverse</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">lam</span><span class="p">):</span>
-	<span class="k">if</span> <span class="n">lam</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-		<span class="k">return</span> <span class="n">exp</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-	<span class="k">return</span> <span class="n">exp</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">lam</span> <span class="o">*</span> <span class="n">value</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">lam</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">lam</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">exp</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">exp</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">lam</span> <span class="o">*</span> <span class="n">value</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">lam</span><span class="p">)</span>
 
 <span class="c1"># an transform ARIMA model for a given order (p,d,q)</span>
 <span class="k">def</span> <span class="nf">transform_arima_model</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="n">arima_order</span><span class="p">):</span>
-	<span class="c1"># walk-forward validation</span>
-	<span class="n">history</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">train</span><span class="p">]</span>
-	<span class="n">predictions</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
-	<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test</span><span class="p">)):</span>
-		<span class="c1"># transform</span>
-		<span class="n">transformed</span><span class="p">,</span> <span class="n">lam</span> <span class="o">=</span> <span class="n">boxcox</span><span class="p">(</span><span class="n">history</span><span class="p">)</span>
-		<span class="k">if</span> <span class="n">lam</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">5</span><span class="p">:</span>
-		    <span class="n">transformed</span><span class="p">,</span> <span class="n">lam</span> <span class="o">=</span> <span class="n">history</span><span class="p">,</span> <span class="mi">1</span>
-					
-		<span class="n">model</span> <span class="o">=</span> <span class="n">ARIMA</span><span class="p">(</span><span class="n">transformed</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">arima_order</span><span class="p">)</span>
-		<span class="n">model_fit</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-		<span class="n">yhat</span> <span class="o">=</span> <span class="n">model_fit</span><span class="o">.</span><span class="n">forecast</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="c1"># walk-forward validation</span>
+  <span class="n">history</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">train</span><span class="p">]</span>
+  <span class="n">predictions</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+  <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test</span><span class="p">)):</span>
+    <span class="c1"># transform</span>
+    <span class="n">transformed</span><span class="p">,</span> <span class="n">lam</span> <span class="o">=</span> <span class="n">boxcox</span><span class="p">(</span><span class="n">history</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">lam</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">5</span><span class="p">:</span>
+        <span class="n">transformed</span><span class="p">,</span> <span class="n">lam</span> <span class="o">=</span> <span class="n">history</span><span class="p">,</span> <span class="mi">1</span>
+          
+    <span class="n">model</span> <span class="o">=</span> <span class="n">ARIMA</span><span class="p">(</span><span class="n">transformed</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">arima_order</span><span class="p">)</span>
+    <span class="n">model_fit</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">yhat</span> <span class="o">=</span> <span class="n">model_fit</span><span class="o">.</span><span class="n">forecast</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
 
-		<span class="c1"># invert transformed prediction</span>
-		<span class="n">yhat</span> <span class="o">=</span> <span class="n">boxcox_inverse</span><span class="p">(</span><span class="n">yhat</span><span class="p">,</span> <span class="n">lam</span><span class="p">)</span>
-		
-		<span class="n">predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">yhat</span><span class="p">)</span>
-
-		<span class="n">obs</span> <span class="o">=</span> <span class="n">test</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
-		<span class="n">history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span>
-
-		<span class="c1">#print(&#39;predicted=%f, expected=%f&#39; % (yhat, obs))</span>
-		
-	<span class="c1"># calculate out of sample error</span>
-	<span class="n">mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">predictions</span><span class="p">)</span>
-	<span class="n">rmse</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">mse</span><span class="p">)</span>
+    <span class="c1"># invert transformed prediction</span>
+    <span class="n">yhat</span> <span class="o">=</span> <span class="n">boxcox_inverse</span><span class="p">(</span><span class="n">yhat</span><span class="p">,</span> <span class="n">lam</span><span class="p">)</span>
     
-	<span class="c1"># plot</span>
-	<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
-	<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
-	<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;RSME: </span><span class="si">%.4f</span><span class="s1">&#39;</span><span class="o">%</span> <span class="n">rmse</span><span class="p">)</span>
-	<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">yhat</span><span class="p">)</span>
 
-	<span class="k">return</span> <span class="n">predictions</span>
+    <span class="n">obs</span> <span class="o">=</span> <span class="n">test</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
+    <span class="n">history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span>
+
+    <span class="c1">#print(&#39;predicted=%f, expected=%f&#39; % (yhat, obs))</span>
+    
+  <span class="c1"># calculate out of sample error</span>
+  <span class="n">mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">predictions</span><span class="p">)</span>
+  <span class="n">rmse</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">mse</span><span class="p">)</span>
+    
+  <span class="c1"># plot</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;RSME: </span><span class="si">%.4f</span><span class="s1">&#39;</span><span class="o">%</span> <span class="n">rmse</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+  <span class="k">return</span> <span class="n">predictions</span>
 
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
 <span class="n">predictions</span> <span class="o">=</span> <span class="n">transform_arima_model</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">validation</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
@@ -19677,12 +19676,12 @@ qOObAAAAAElFTkSuQmCC
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># monkey patch around bug in ARIMA class</span>
 <span class="k">def</span> <span class="nf">__getnewargs__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-	<span class="k">return</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">endog</span><span class="p">),(</span><span class="bp">self</span><span class="o">.</span><span class="n">k_lags</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_diff</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_ma</span><span class="p">))</span>
+  <span class="k">return</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">endog</span><span class="p">),(</span><span class="bp">self</span><span class="o">.</span><span class="n">k_lags</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_diff</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_ma</span><span class="p">))</span>
  
 <span class="n">ARIMA</span><span class="o">.</span><span class="n">__getnewargs__</span> <span class="o">=</span> <span class="n">__getnewargs__</span>
 
 <span class="c1"># load data</span>
-<span class="n">series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span><span class="s1">&#39;dataset.csv&#39;</span><span class="p">)</span>
+<span class="n">series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span><span class="s1">&#39;data/dataset.csv&#39;</span><span class="p">)</span>
 <span class="c1"># prepare data</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">series</span><span class="o">.</span><span class="n">values</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span>
@@ -19719,10 +19718,10 @@ qOObAAAAAElFTkSuQmCC
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># load and prepare datasets</span>
-<span class="n">dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span><span class="s1">&#39;dataset.csv&#39;</span><span class="p">)</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span><span class="s1">&#39;data/dataset.csv&#39;</span><span class="p">)</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span>
 <span class="n">history</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="p">]</span>
-<span class="n">test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span><span class="s1">&#39;test.csv&#39;</span><span class="p">)</span>
+<span class="n">test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span><span class="s1">&#39;data/test.csv&#39;</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">test</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span>
 
 <span class="c1"># load model</span>
@@ -19739,24 +19738,24 @@ qOObAAAAAElFTkSuQmCC
 
 <span class="c1"># rolling forecasts</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)):</span>
-	<span class="c1"># transform</span>
-	<span class="n">transformed</span><span class="p">,</span> <span class="n">lam</span> <span class="o">=</span> <span class="n">boxcox</span><span class="p">(</span><span class="n">history</span><span class="p">)</span>
-	<span class="k">if</span> <span class="n">lam</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">5</span><span class="p">:</span>
-		<span class="n">transformed</span><span class="p">,</span> <span class="n">lam</span> <span class="o">=</span> <span class="n">history</span><span class="p">,</span> <span class="mi">1</span>
+  <span class="c1"># transform</span>
+  <span class="n">transformed</span><span class="p">,</span> <span class="n">lam</span> <span class="o">=</span> <span class="n">boxcox</span><span class="p">(</span><span class="n">history</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">lam</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">5</span><span class="p">:</span>
+    <span class="n">transformed</span><span class="p">,</span> <span class="n">lam</span> <span class="o">=</span> <span class="n">history</span><span class="p">,</span> <span class="mi">1</span>
 
-	<span class="c1"># predict</span>
-	<span class="n">model</span> <span class="o">=</span> <span class="n">ARIMA</span><span class="p">(</span><span class="n">transformed</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-	<span class="n">model_fit</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-	<span class="n">yhat</span> <span class="o">=</span> <span class="n">model_fit</span><span class="o">.</span><span class="n">forecast</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="c1"># predict</span>
+  <span class="n">model</span> <span class="o">=</span> <span class="n">ARIMA</span><span class="p">(</span><span class="n">transformed</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+  <span class="n">model_fit</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+  <span class="n">yhat</span> <span class="o">=</span> <span class="n">model_fit</span><span class="o">.</span><span class="n">forecast</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
 
-	<span class="c1"># invert transformed prediction</span>
-	<span class="n">yhat</span> <span class="o">=</span> <span class="n">boxcox_inverse</span><span class="p">(</span><span class="n">yhat</span><span class="p">,</span> <span class="n">lam</span><span class="p">)</span>
+  <span class="c1"># invert transformed prediction</span>
+  <span class="n">yhat</span> <span class="o">=</span> <span class="n">boxcox_inverse</span><span class="p">(</span><span class="n">yhat</span><span class="p">,</span> <span class="n">lam</span><span class="p">)</span>
 
-	<span class="n">predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">yhat</span><span class="p">)</span>
-	<span class="c1"># observation</span>
-	<span class="n">obs</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-	<span class="n">history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span>
-	<span class="c1">#print(&#39;&gt;Predicted=%.3f, Expected=%3.f&#39; % (yhat, obs))</span>
+  <span class="n">predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">yhat</span><span class="p">)</span>
+  <span class="c1"># observation</span>
+  <span class="n">obs</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+  <span class="n">history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span>
+  <span class="c1">#print(&#39;&gt;Predicted=%.3f, Expected=%3.f&#39; % (yhat, obs))</span>
     
 <span class="c1"># report performance</span>
 <span class="n">mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">predictions</span><span class="p">)</span>
@@ -20085,7 +20084,6 @@ UwAAAABJRU5ErkJggg==
     </div>
   </div>
 
-
     <hr>
 
     <!-- Footer -->
@@ -20136,7 +20134,6 @@ UwAAAABJRU5ErkJggg==
 
     <!-- Theme JavaScript -->
     <script src="js/clean-blog.min.js"></script>
-
   
 </body>
 
